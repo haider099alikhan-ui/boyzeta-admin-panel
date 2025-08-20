@@ -67,12 +67,6 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes
-app.use('/api/products', productRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/companies', companyRoutes);
-app.use('/api/bulk-upload', bulkUploadRoutes);
-
 // Root API route
 app.get('/api', (req, res) => {
   res.json({
@@ -88,6 +82,12 @@ app.get('/api', (req, res) => {
     status: 'OK'
   });
 });
+
+// API routes
+app.use('/api/products', productRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/companies', companyRoutes);
+app.use('/api/bulk-upload', bulkUploadRoutes);
 
 // 404 handler
 app.use('*', (req, res) => {
