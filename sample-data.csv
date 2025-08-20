@@ -1,0 +1,6 @@
+name,boycott,reason,alternatives,barcodes,urls
+Nestle,true,Environmental destruction and water privatization,Unilever;Danone,1234567890123;9876543210987,https://example.com/nestle-issues;https://example.com/water-privatization
+Coca-Cola,true,Water depletion and plastic pollution,Pepsi;Dr Pepper,1112223334444;5556667778888,https://example.com/coca-cola-water;https://example.com/plastic-pollution
+McDonald's,true,Animal cruelty and deforestation,Burger King;Wendy's,9998887776666;4443332221111,https://example.com/mcdonalds-animals;https://example.com/deforestation
+Apple,false,Generally good labor practices and environmental initiatives,Samsung;Google,7778889990000;1110009998888,https://example.com/apple-labor;https://example.com/environmental
+Tesla,false,Leading electric vehicle innovation and sustainability,Ford;GM,2223334445555;6667778889999,https://example.com/tesla-innovation;https://example.com/sustainability
