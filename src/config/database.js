@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const mongoURI = 'mongodb+srv://haider099alikhan:KwCv78HaZh13c81p@cluster0.ylsuqzx.mongodb.net/boyzeta?retryWrites=true&w=majority&appName=Cluster0';
+    const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://haider099alikhan:KwCv78HaZh13c81p@cluster0.ylsuqzx.mongodb.net/boyzeta?retryWrites=true&w=majority&appName=Cluster0';
 
     const options = {
       maxPoolSize: 10, // Maintain up to 10 socket connections
