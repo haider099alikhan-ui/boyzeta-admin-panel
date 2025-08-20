@@ -20,12 +20,21 @@ const PORT = process.env.PORT || 3000;
 // Connect to MongoDB
 connectDB();
 
+// Trust proxy for Vercel deployment
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet());
 
 // CORS configuration
 app.use(cors({
-  origin: ['http://localhost:3002', 'http://localhost:3001', 'http://localhost:3000'],
+  origin: [
+    'http://localhost:3002', 
+    'http://localhost:3001', 
+    'http://localhost:3000',
+    'https://boyzeta-admin-panel.vercel.app',
+    'https://*.vercel.app'
+  ],
   credentials: true
 }));
 
@@ -63,6 +72,22 @@ app.use('/api/products', productRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/companies', companyRoutes);
 app.use('/api/bulk-upload', bulkUploadRoutes);
+
+// Root API route
+app.get('/api', (req, res) => {
+  res.json({
+    message: 'BoyZeta Admin API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      products: '/api/products',
+      auth: '/api/auth',
+      companies: '/api/companies',
+      bulkUpload: '/api/bulk-upload'
+    },
+    status: 'OK'
+  });
+});
 
 // 404 handler
 app.use('*', (req, res) => {
