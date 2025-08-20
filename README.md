@@ -1,8 +1,8 @@
-# 🚀 BoyZeta Admin Panel
+# BoyZeta Admin Panel Backend
 
-A comprehensive, production-ready admin panel for managing companies, barcodes, boycott status, and alternatives with country-specific features and multi-admin support.
+A production-ready Node.js backend API for managing boycott information, companies, barcodes, and alternatives with country-specific features and multi-admin support.
 
-## ✨ Features
+## 🚀 Features
 
 ### 🔐 **Authentication & Authorization**
 - **JWT-based authentication** with secure token management
@@ -26,12 +26,11 @@ A comprehensive, production-ready admin panel for managing companies, barcodes, 
 - **Country filtering** in analytics and company views
 - **Smart alternative resolution** based on user's location
 
-### 📊 **Analytics Dashboard**
+### 📊 **Analytics & Data**
 - **Real-time statistics** for companies, boycotts, and barcodes
 - **Country-based filtering** for localized insights
-- **Boycott percentage visualization** with progress bars
-- **Upload metrics** and recent activity tracking
 - **Performance indicators** for admin decision-making
+- **Data aggregation** and reporting endpoints
 
 ### 📤 **Bulk Upload System**
 - **CSV import** with comprehensive validation
@@ -61,17 +60,6 @@ src/
 └── index.js         # Main server file
 ```
 
-### **Frontend (React + TypeScript + Tailwind CSS)**
-```
-frontend/src/
-├── components/      # Reusable UI components
-├── contexts/        # React Context for state management
-├── pages/          # Main application pages
-├── services/       # API client and data fetching
-├── types/          # TypeScript type definitions
-└── utils/          # Utility functions and constants
-```
-
 ## 🚀 **Quick Start**
 
 ### **Prerequisites**
@@ -83,15 +71,13 @@ frontend/src/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/haider099alikhan-ui/boyzeta-backend.git
    cd boyzeta-backend
    ```
 
 2. **Install dependencies**
    ```bash
    npm install
-   cd frontend && npm install
-   cd ..
    ```
 
 3. **Environment setup**
@@ -105,53 +91,15 @@ frontend/src/
    npm run setup:admin
    ```
 
-5. **Start development servers**
+5. **Start development server**
    ```bash
-   npm run dev:full
+   npm run dev
    ```
 
 ### **Default Super Admin Credentials**
 - **Email**: `admin@boyzeta.com`
 - **Password**: `SuperAdmin123!`
 - **⚠️ Change password after first login!**
-
-## 📱 **Usage Guide**
-
-### **Adding a Company**
-1. Navigate to "Add Company"
-2. Fill in company details:
-   - **Name**: Company/brand name
-   - **Boycott Status**: true/false
-   - **Reason**: Why company is boycotted (if applicable)
-   - **Country**: Company's primary market
-   - **Alternatives**: Country-specific alternatives with descriptions
-   - **Barcodes**: 8-14 digit product codes
-   - **Proof URLs**: Links to supporting articles
-
-### **Bulk Upload**
-1. Prepare CSV file with headers:
-   ```
-   name,boycott,reason,country,alternatives,barcodes,proofurls
-   ```
-2. **Alternatives format**: `"Name:CountryCode:Description;Name2:CountryCode2:Description2"`
-3. Upload via "Bulk Upload" page
-4. Review validation results and conflicts
-5. Confirm import
-
-### **Country-Specific Alternatives**
-- **Format**: `AlternativeName:CountryCode:Description`
-- **Examples**:
-  - `"Dr Pepper:IN:Organic alternative"`
-  - `"Local Brand:PK:Regional option"`
-  - `"Generic Brand:GLOBAL:Universal alternative"`
-- **Fallback**: If no country-specific alternative exists, GLOBAL alternatives are shown
-
-### **User Management**
-1. **Super Admin** can create new admin accounts
-2. **Assign roles** based on responsibilities:
-   - **Super Admin**: Full access, user management
-   - **Admin**: Company management, bulk uploads
-   - **Moderator**: View companies, limited editing
 
 ## 🔧 **API Endpoints**
 
@@ -172,9 +120,9 @@ frontend/src/
 - `POST /api/bulk-upload` - Upload CSV data
 - **Features**: Validation, conflict detection, smart merging
 
-### **Analytics**
-- `GET /api/companies` - Raw data for analytics
-- **Frontend processing** for real-time statistics
+### **Health & Info**
+- `GET /health` - Server health check
+- `GET /api` - API information and endpoints
 
 ## 🛡️ **Security Features**
 
@@ -185,6 +133,7 @@ frontend/src/
 - **Input validation** and sanitization
 - **Rate limiting** to prevent abuse
 - **CORS configuration** for secure cross-origin requests
+- **Trust proxy** configuration for Vercel deployment
 
 ## 📊 **Database Schema**
 
@@ -222,27 +171,15 @@ frontend/src/
 }
 ```
 
-## 🎨 **UI/UX Features**
-
-- **Responsive design** for all device sizes
-- **Modern Tailwind CSS** styling
-- **Toast notifications** for user feedback
-- **Loading states** and progress indicators
-- **Error handling** with helpful messages
-- **Search and filtering** capabilities
-- **Pagination** for large datasets
-- **Real-time updates** and live data
-
 ## 🚀 **Deployment**
 
-### **Production Build**
-```bash
-# Build frontend
-npm run build:frontend
+### **Vercel (Recommended)**
 
-# Start production server
-npm start
-```
+1. Connect your GitHub repository to Vercel
+2. Set build command: `npm start`
+3. Set output directory: `src`
+4. Configure environment variables
+5. Deploy!
 
 ### **Environment Variables**
 ```bash
@@ -264,6 +201,13 @@ COPY . .
 EXPOSE 3000
 CMD ["npm", "start"]
 ```
+
+## 🔗 **Frontend Integration**
+
+This backend is designed to work with the **BoyZeta Frontend** repository:
+- **Repository**: `boyzeta-frontend`
+- **Tech Stack**: React + TypeScript + Tailwind CSS
+- **API Integration**: RESTful endpoints with JWT authentication
 
 ## 🤝 **Contributing**
 
