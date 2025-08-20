@@ -21,12 +21,10 @@
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/dist/$1"
+      "dest": "frontend/dist/index.html"
     }
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "buildCommand": "npm run build",
-  "outputDirectory": "frontend/dist"
+  }
 }
